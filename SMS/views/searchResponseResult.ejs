@@ -1,0 +1,79 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+			}
+		.btn{
+				width:200px;
+  				padding:5px;
+			}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+		.table{
+					background:DarkSeaGreen
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<head>
+		<script>
+			function validateForm() {
+  				let survey_name = document.forms["searchResponseResult"]["surveyName"].value;
+				let user_name = document.forms["searchResponseResult"]["userName"].value;
+				if (survey_name.trim() == "" && user_name.trim() == "") {
+    				alert("Enter Survey Name or User Name to Search!");
+    				return false;
+  				}
+			}
+		</script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Search Responses
+	</h1>
+	<form method="post" name="searchResponseResult" onsubmit="return validateForm()" action="searchResponseResult">
+		Enter Survey Name: &nbsp;&nbsp;
+		<input type="text" name="surveyName" placeholder="Survey Name" size="25" autocomplete="off">
+		&nbsp;&nbsp;&nbsp;
+		Enter User Name: &nbsp;&nbsp;
+		<input type="text" name="userName" placeholder="User Name" size="25" autocomplete="off">
+		<br><br>
+		<button tyep="submit" class="btn btn-danger">
+			Search Responses
+		</button>
+	</form>
+	<div class="container">
+	<table class="table table-bordered table-hover">
+		<thead style="background:IndianRed">
+		<tr><th>SURVEY NAME</th>
+		<th>USER NAME</th>
+		<th>RESPONSE1</th>
+		<th>RESPONSE2</th>
+		<th>RESPONSE3</th>
+		<th>RESPONSE4</th>
+		<th>RESPONSE5</th></tr>
+		</thead>
+		<% data.forEach(function(response){ %>
+		<tr><td><%= response.SURVEY_NAME %></td>
+		<td><%= response.NAME %></td>
+		<td><%= response.RESPONSE1 %></td>
+		<td><%= response.RESPONSE2 %></td>
+		<td><%= response.RESPONSE3 %></td>
+		<td><%= response.RESPONSE4 %></td>
+		<td><%= response.RESPONSE5 %></td></tr>
+		<% }) %>
+	</table>
+	</div>
+	<form method="post" name="home" action="home">
+		<button name="home" type="submit" class="btn btn-success">
+			HOME
+		</button>
+	</form>
+	</body>
+</html>

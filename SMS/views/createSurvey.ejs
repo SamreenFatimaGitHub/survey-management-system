@@ -1,0 +1,78 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+			}
+		.btn{
+				width:200px;
+  				padding:5px;
+			}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<head>
+		<script>
+			function validateForm() {
+  				let survey_name = document.forms["submitQuestions"]["survey_name"].value;
+				if (survey_name.trim() == "") {
+    				alert("Enter Survey Name!");
+    				return false;
+  				}
+				let question1 = document.forms["submitQuestions"]["question1"].value;
+				let question2 = document.forms["submitQuestions"]["question2"].value;
+				let question3 = document.forms["submitQuestions"]["question3"].value;
+				let question4 = document.forms["submitQuestions"]["question4"].value;
+				let question5 = document.forms["submitQuestions"]["question5"].value;
+  				if (question1.trim() == "" || question2.trim() == "" || question3.trim() == "" || question4.trim() == "" || question5.trim() == "")
+				{
+    				alert("Enter data in all fields");
+    				return false;
+  				}
+			}
+		</script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Create Survey
+	</h1>
+	<br>
+	<form method="post" name="submitQuestions" onsubmit="return validateForm()" action="/submitQuestions">
+		Enter Survey Name: <input type="text" size="100" name="survey_name" autocomplete="off" placeholder="Survey Name" required>
+		<br><br>
+		Enter Question 1: <input type="text" size="100" name="question1" autocomplete="off" placeholder="Question 1" required>
+		<br><br>
+		Enter Question 2: <input type="text" size="100" name="question2" autocomplete="off" placeholder="Question 2" required>
+		<br><br>
+		Enter Question 3: <input type="text" size="100" name="question3" autocomplete="off" placeholder="Question 3" required>
+		<br><br>
+		Enter Question 4: <input type="text" size="100" name="question4" autocomplete="off" placeholder="Question 4" required>
+		<br><br>
+		Enter Question 5: <input type="text" size="100" name="question5" autocomplete="off" placeholder="Question 5" required>
+		<br><br>
+		Select Response Type: &nbsp;&nbsp;
+		<select name="responseType" class="btn btn-default">
+			<% data.forEach(function(responseName){ %>
+			<option value="<%= responseName.RESPONSE_TYPE %>"><%= responseName.RESPONSE_NAME %>
+		<% }) %>
+		</select>
+		<br><br>
+		<button type="submit" name="submitQuestions" class="btn btn-danger">
+			Submit Questions
+		</button>
+	</form>
+	<br>
+	<form method="post" name="home" action="home">
+		<button name="home" type="submit" class="btn btn-success">
+			HOME
+		</button>
+	</form>
+	</body>
+</html>

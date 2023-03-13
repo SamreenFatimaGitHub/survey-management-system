@@ -1,0 +1,50 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+			}
+		.btn{
+				width:200px;
+  				padding:5px;
+			}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<head>
+		<script>
+			function validateForm() {
+  				let survey_name = document.forms["searchSurveyResult"]["surveyName"].value;
+				if (survey_name.trim() == "") {
+    				alert("Enter Survey Name!");
+    				return false;
+  				}
+			}
+		</script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Search Survey
+	</h1>
+	<form method="post" name="searchSurveyResult" onsubmit="return validateForm()" action="searchSurveyResult">
+		Enter Survey Name: &nbsp;&nbsp;
+		<input type="text" name="surveyName" placeholder="Survey Name" size="25" autocomplete="off" required>
+		<button tyep="submit" class="btn btn-danger">
+			Search Survey
+		</button>
+	</form>
+	<br>
+	<form method="post" name="home" action="home">
+		<button name="home" type="submit" class="btn btn-success">
+			HOME
+		</button>
+	</form>
+	</body>
+</html>

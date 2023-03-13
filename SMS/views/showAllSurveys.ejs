@@ -1,0 +1,57 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+			}
+		.btn{
+				width:200px;
+  				padding:5px;
+			}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+		.table{
+					background:DarkSeaGreen
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Show All Surveys
+	</h1>
+		<br>
+	<div class="container">
+	<table class="table table-bordered table-hover">
+		<thead style="background:IndianRed">
+		<tr><th>SURVEY NAME</th>
+			<th> QUESTION1</th>
+			<th> QUESTION2</th>
+			<th> QUESTION3</th>
+			<th> QUESTION4</th>
+			<th> QUESTION5</th>
+			</tr></thead>
+		<% data.forEach(function(survey){ %>
+		<tr><td><%= survey.SURVEY_NAME %></td>
+			<td><%= survey.QUESTION1 %></td>
+			<td><%= survey.QUESTION2 %></td>
+			<td><%= survey.QUESTION3 %></td>
+			<td><%= survey.QUESTION4 %></td>
+			<td><%= survey.QUESTION5 %></td>
+		</tr>
+		<% }) %>
+	</table>
+	</div>
+	<br>
+	<form method="post" name="home" action="home">
+		<button name="home" type="submit" class="btn btn-success">
+			HOME
+		</button>
+	</form>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+			}
+		.btn{
+				width:200px;
+  				padding:5px;
+			}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+		.table{
+					background:DarkSeaGreen
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Show All Responses
+	</h1>
+	<br>
+	<div class="container">
+	<table class="table table-bordered table-hover" >
+		<thead style="background:IndianRed">
+		<tr><th>NAME</th>
+		<th>SURVEY NAME</th>
+		<th>RESPONSE1</th>
+		<th>RESPONSE2</th>
+		<th>RESPONSE3</th>
+		<th>RESPONSE4</th>
+		<th>RESPONSE5</th></tr>
+		</thead>
+		<% data.forEach(function(response){ %>
+		<tr><td><%= response.NAME %></td>
+		<td><%= response.SURVEY_NAME %></td>
+		<td><%= response.RESPONSE1 %></td>
+		<td><%= response.RESPONSE2 %></td>
+		<td><%= response.RESPONSE3 %></td>
+		<td><%= response.RESPONSE4 %></td>
+		<td><%= response.RESPONSE5 %></td></tr>
+		<% }) %>
+	</table>
+	</div>
+	<br>
+	<form method="post" name="home" action="home">
+		<button name="home" type="submit" class="btn btn-success">
+			HOME
+		</button>
+	</form>
+	</body>
+</html>
