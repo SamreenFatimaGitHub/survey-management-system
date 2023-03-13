@@ -1,0 +1,86 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+		}
+		.btn{
+				width:200px;
+  				padding:5px;
+		}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Survey Management System
+	</h1>
+	<br>
+	<form method="post" action="/createSurvey">
+		&nbsp;<button type="submit" name="createSurvey" class="btn btn-primary">
+			Create Survey
+		</button>
+	</form>
+
+	<form method="post" action="/selectSurvey">
+		&nbsp;<button type="submit" name="selectSurvey" class="btn btn-primary">
+			Take a Survey
+		</button>
+	</form>
+
+	<form method="post" action="/searchSurveys">
+		&nbsp;<button type="submit" name="searchSurveys" class="btn btn-primary">
+			Search Survey
+		</button>
+	</form>
+	
+	<form method="post" action="/searchResponses">
+		&nbsp;<button type="submit" name="searchResponses" class="btn btn-primary">
+			Search Responses
+		</button>
+	</form>
+	
+	<form method="post" action="/showAllSurveys">
+		&nbsp;<button type="submit" name="showAllSurveys" class="btn btn-primary">
+			Show All Surveys
+		</button>
+	</form>
+	
+	<form method="post" action="/showAllResponses">
+		&nbsp;<button type="submit" name="showAllResponses" class="btn btn-primary">
+			Show All Responses
+		</button>
+	</form>
+
+	<form method="post" action="/updateSurvey">
+		&nbsp;<button type="submit" name="updateSurvey" class="btn btn-primary">
+			Update Survey
+		</button>
+	</form>
+	
+	<form method="post" action="/deleteSurvey">
+		&nbsp;<button type="submit" name="deleteSurvey" class="btn btn-primary">
+			Delete Survey
+		</button>
+	</form>
+	
+	<form method="post" action="/deleteUserResponse">
+		&nbsp;<button type="submit" name="deleteUserResponse" class="btn btn-primary">
+			Delete User Response
+		</button>
+	</form>
+
+	<form method="post" action="/viewReport">
+		&nbsp;<button type="submit" name="viewReport" class="btn btn-primary">
+			View Survey Report
+		</button>
+	</form>
+	</body>
+</html>

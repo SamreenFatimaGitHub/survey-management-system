@@ -1,0 +1,76 @@
+<html>
+	<style>
+		body{
+				text-align:center;
+			}
+		.btn{
+				width:200px;
+  				padding:5px;
+			}
+		.bg-custom{
+					background-color:#F2D7D5
+		}
+		tr{
+					background:MediumTurquoise
+		}
+	</style>
+	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<head>
+		<script>
+			function validateForm() {
+  				let name = document.forms["submitResponse"]["name"].value;
+				if (name.trim() == "") {
+    				alert("Please Enter Name!");
+    				return false;
+  				}
+			}
+		</script>
+	</head>
+	<body class="bg-custom">
+	<h1>
+		Take Survey
+	</h1>
+	<h4 name="survey_name" value="<%= data[0].SURVEY_NAME %>">
+		<b>SURVEY NAME: <%= data[0].SURVEY_NAME %></b>
+	</h4>
+	<form method="post" name="submitResponse" onsubmit="return validateForm()"  action="/submitResponse">
+		<input type="hidden" name="sid" value="<%= data[0].SID %>"/>
+		<b>Enter User Name: </b><input type="text" size="30" name="name" autocomplete="off" placeholder="User Name" required>
+		<br><br>
+		<div class="table-responsive">
+	<table style="width:100%" class="table table-bordered table-hover" style="padding:10px">
+		<% data.forEach(function(question){ %>
+		<tr>
+			<td><%= question.QUESTION %></td>
+			<td><input type="radio" name="<%= question.QUESTION %>" value="<%= question.RESPONSE1 %>" required>
+				<%= question.RESPONSE1 %></td>
+			<td><input type="radio" name="<%= question.QUESTION %>" value="<%= question.RESPONSE2 %>" required>
+				<%= question.RESPONSE2 %></td>
+			<td><input type="radio" name="<%= question.QUESTION %>" value="<%= question.RESPONSE3 %>" required>
+				<%= question.RESPONSE3 %></td>
+			<td><input type="radio" name="<%= question.QUESTION %>" value="<%= question.RESPONSE4 %>" required>
+				<%= question.RESPONSE4 %></td>
+			<td><input type="radio" name="<%= question.QUESTION %>" value="<%= question.RESPONSE5 %>" required>
+				<%= question.RESPONSE5 %></td>
+		</tr>
+		<% }) %>
+	</table>
+		</div>
+		<button type="submit" class="btn btn-danger">
+			Submit Response
+		</button>
+	</form>
+	
+	<form method="post" name="home" action="home">
+		<button name="home" type="submit" class="btn btn-success">
+			HOME
+		</button>
+	</form>
+	</body>
+</html>
